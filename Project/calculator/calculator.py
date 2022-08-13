@@ -37,7 +37,7 @@ cap.set(4,720)
 detector = HandDetector(detectionCon=0.5, maxHands=1)
 
 myEquation = ''
-counter = 0
+dayer = 0
 
 # Buttons
 buttonListValues = [['7', '8', '9', '*'],
@@ -69,7 +69,7 @@ while True:
         length,info,img = detector.findDistance(lm[8][:2], lm[12][:2], img)
         x,y=lm[8][:2]
 
-        if length < 45 and counter == 0:
+        if length < 45 and dayer == 0:
                 for i, button in enumerate(buttonList):
                     if button.checkClick(x, y):
                         myValue=buttonListValues[int(i%4)][int(i/4)]
@@ -80,11 +80,11 @@ while True:
                                 myEquation = str(eval(myEquation))
                         else:
                             myEquation += myValue
-                    counter = 1
-    if counter != 0:
-        counter += 1
-        if counter > 10:
-            counter = 0
+                    dayer = 1
+    if dayer != 0:
+        dayer += 1
+        if dayer > 10:
+            dayer = 0
  
     # Write the Final answer
     cv2.putText(img, myEquation, (610, 60), cv2.FONT_HERSHEY_PLAIN,3, (0, 0, 0), 3)

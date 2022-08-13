@@ -1,5 +1,8 @@
-l1=['a','b','c']
-l2=[1,2,3]
-# print(zip(l1,l2))
-for x,y in zip(l1,l2):
-    print(f"{x}\t{y}")
+from datetime import datetime
+
+
+import datetime
+
+time1=datetime.date(1976,10,11)
+time2=datetime.date(2022,7,9)
+print(time2-time1)
